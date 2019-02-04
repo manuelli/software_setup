@@ -81,9 +81,14 @@ install_spotify(){
 	sudo apt-get install spotify-client
 }
 
+install_htop(){
+	sudo apt-get install htop
+}
+
 
 # install_sublime
 # install_terminator
+# install_htop
 # install_git_cola
 # install_docker
 # install_nvidia_docker2
