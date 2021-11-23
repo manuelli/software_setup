@@ -1,10 +1,3 @@
-# sublime
-install_sublime(){
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
-sudo apt install sublime-text
-}
-
 # terminator
 install_terminator(){
 sudo apt-get update
@@ -82,13 +75,37 @@ install_spotify(){
 }
 
 
+install_chrome(){
+	cd ~/Downloads
+	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	sudo apt install ./google-chrome-stable_current_amd64.deb
+}
+
+install_chrome_gnome_shell(){
+	sudo apt-get install chrome-gnome-shell
+}
+
+install_ulauncher(){
+	sudo add-apt-repository ppa:agornostal/ulauncher
+	sudo apt update
+	sudo apt install ulauncher
+}
+
+install_tmux(){
+	sudo apt install tmux
+}
+
+
 # install_sublime
 # install_terminator
-# install_git_cola
+install_git_cola
 # install_docker
 # install_nvidia_docker2
 # install_pip
 # install_python_packages
 # install_openssh
-install_spotify
-
+# install_spotify
+# install_chrome
+# install_chrome_gnome_shell
+# install_ulauncher
+# install_tmux
