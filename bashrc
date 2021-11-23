@@ -130,8 +130,7 @@ alias work_vpn_split="sudo openconnect -u lmanuelli --authgroup Employee ngvpn06
 export PATH=$PATH:/usr/local/cuda/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 
-# COEO
-export NVIDIA_SRL_COEO_DIR="/home/manuelli/Repos/nvidia/coeo"
+
 
 # GPG key
 # following https://help.ubuntu.com/community/GnuPrivacyGuardHowto
@@ -148,10 +147,13 @@ export PM_PACKAGES_ROOT=$HOME/packman-repo
 export PATH=$PATH:$HOME/.local/bin
 
 # dock
-export DOCK_CONFIG_DIR=/home/manuelli/Repos/nvidia/dockers/dock_configs
-export DOCK_DOCKERFILES_DIR=/home/manuelli/Repos/nvidia/dockers/dockerfiles
-export DOCK_ROOT_DIR=/home/manuelli/Repos/nvidia/dockers
+export DOCK_CONFIG_DIR=$HOME/Repos/nvidia/dockers/dock_configs
+export DOCK_DOCKERFILES_DIR=$HOME/Repos/nvidia/dockers/dockerfiles
+export DOCK_ROOT_DIR=$HOME/Repos/nvidia/dockers
 export SSH_PRIVATE_KEY=$(cat /home/manuelli/.ssh/id_rsa)
+
+# COEO
+export NVIDIA_SRL_COEO_DIR=$HOME/Repos/nvidia/coeo
 
 
 # dock exec
