@@ -46,12 +46,17 @@ install_nvidia_docker2(){
 	# Install nvidia-docker2 and reload the Docker daemon configuration
 	sudo apt-get install -y nvidia-docker2
 	sudo pkill -SIGHUP dockerd
+	sudo systemctl restart docker
 
 	# add yourself to sudo group for docker
 	sudo usermod -aG docker $USERNAME
 
 	# Test nvidia-smi with the latest official CUDA image
 	docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+}
+
+setup_docker_permissions(){
+	sudo usermod -a -G docker $USER
 }
 
 install_pip(){
@@ -95,10 +100,25 @@ install_tmux(){
 	sudo apt install tmux
 }
 
+install_nvidia_driver_11_5(){
+	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+	sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+	wget https://developer.download.nvidia.com/compute/cuda/11.5.0/local_installers/cuda-repo-ubuntu1804-11-5-local_11.5.0-495.29.05-1_amd64.deb
+	sudo dpkg -i cuda-repo-ubuntu1804-11-5-local_11.5.0-495.29.05-1_amd64.deb
+	sudo apt-key add /var/cuda-repo-ubuntu1804-11-5-local/7fa2af80.pub
+	sudo apt-get update
+	sudo apt-get -y install cuda
+}
+
+set_alt_tab_current_workspace_only(){
+	# https://coderwall.com/p/m5mhoq/gnome-3-how-to-alt-tab-windows-on-current-workspace-only
+	gsettings set org.gnome.shell.app-switcher current-workspace-only true
+}
+
 
 # install_sublime
 # install_terminator
-install_git_cola
+# install_git_cola
 # install_docker
 # install_nvidia_docker2
 # install_pip
@@ -109,3 +129,6 @@ install_git_cola
 # install_chrome_gnome_shell
 # install_ulauncher
 # install_tmux
+# setup_docker_permissions
+# install_nvidia_driver_11_5
+# set_alt_tab_current_workspace_only
