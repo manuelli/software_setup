@@ -110,12 +110,17 @@ install_nvidia_driver_11_5(){
 	sudo apt-get -y install cuda
 }
 
+set_alt_tab_current_workspace_only(){
+	# https://coderwall.com/p/m5mhoq/gnome-3-how-to-alt-tab-windows-on-current-workspace-only
+	gsettings set org.gnome.shell.app-switcher current-workspace-only true
+}
+
 
 # install_sublime
 # install_terminator
 # install_git_cola
 # install_docker
-install_nvidia_docker2
+# install_nvidia_docker2
 # install_pip
 # install_python_packages
 # install_openssh
@@ -126,3 +131,4 @@ install_nvidia_docker2
 # install_tmux
 # setup_docker_permissions
 # install_nvidia_driver_11_5
+# set_alt_tab_current_workspace_only
